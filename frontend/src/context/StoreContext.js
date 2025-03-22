@@ -7,7 +7,7 @@ export const StoreContext = createContext(null);
    //remeber to make changes in index.js
 const StoreContextProvider= (props)=>{
     const [cartItems,setCartItems]=useState({});
-    const url="http://localhost:4000"
+    const url="https://food-delivery-app-backend-if88.onrender.com"
     const [token,setToken] =useState("")
     const [food_list,setFood_list]= useState([])
     const fetchFood = async()=>{
