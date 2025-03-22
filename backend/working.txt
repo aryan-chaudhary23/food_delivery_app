@@ -1,0 +1,71 @@
+"scripts": {
+    "server": "nodemon server.js"
+  } change the start script to this
+install the dependencies
+above script write "type" :"module"
+now create a new project then a new cluster 
+now go to network access add an ip and add there 0.0.0.0
+and remove the current ip present
+always remember in whatever function we use await we make those functions async
+always remember when importing functions from other js file
+dont forget to add.js at last when importing them
+
+first we created a food model
+then we created a foodController.js ie. controller for foodModel
+sath mein we also created route for this add food in foodRoute.js and export the function
+now in server.js after db connection make the route
+app.use("/api/food",'whatever function we exported in foodRoute.js')
+
+now test this api endpoint at http://localhost:4000/api/food/add in post method
+but remember to test at form-data column not raw as we have to upload a file here too
+so in key add the name of our fields ie. name,description, price etc. 
+when on image file set the category to file 
+now to see working or not see the uploads folder and mongo db
+
+now image is added in our local folder how do we access it because when working on frontend we need to be able to access it
+so in server.js under our foodRouter mapping
+do app.use("/images",express.static('uploads'))
+now to access our image what we can do is hit this http://localhost:4000/images/`whatever is the image name ie. stored in uploads folder`
+try to run this on browser we get out image
+
+now create another controller which will fetch all food items
+so go in foodController.js create the controller function export it come to foodroute import that and map to an endpoint
+now test this also at http://localhost:4000/api/food/list
+
+now similarly create remove food items from db functionality
+using these api's we will create the admin pannel
+
+remember normal routes and controller and token and all made first we add middlewares after that 
+
+now in cart what will happen is user sends an item id through which an entry will be created in the cart
+now when user will send the data they will use the token to authenticate them as each user has a separate cart
+to decode the token we will use the middleware
+using middleware we added user id from token into our req.body 
+now to test the cart endpoint first login on potsman you get  a token 
+copy the token in headers filed create a field token and paste the toekn w/o ""
+now type the endpoint and give itemId 
+itemId copy from foods folder in mongo db
+
+now after adding the cart functionality we add the payment functionality
+for that first we create a new model named orderModel.js
+now creating controller for it
+now mapping the route to it
+now after creating its route add that route to server.js
+now in env set up stripe variables
+to get stripe key go to stripe official page, create account an in dashboard we have it
+now for payment do as done in the code
+
+now we need to link these api to frontend
+ie. at placeorder.js
+to get a dummy card for testing payment search on google stripe dummy card
+then click cards by country
+now choose a country and we have out card info
+add any expiry, cvv, name
+
+now after payment we need to see if the payment is successfull or not so we create another controller,route and all same steps
+if payment succes is true a page will be shown
+if false order info will be deleted ie. that order is discarded
+now verify controller is made we create a frontend new page ie. verify page where we show our success page
+now after this if success is true we go to myorders page so we create that in frontend
+
+but first we need to fetch all the orders of the user ie. currently signed in so create a controller for that

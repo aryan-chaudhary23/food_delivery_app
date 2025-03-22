@@ -1,0 +1,6 @@
+only thing to note is we were logged out after refreshing but in storeContext if we do
+useEffect(()=>{
+        if(localStorage.getItem("token")) setToken(localStorage.getItem("token"));
+    },[]) then all good 
+
+now after adding the add from cart and remove from cart functionality we want the same cart to be shown if that page is refreshed so we added
