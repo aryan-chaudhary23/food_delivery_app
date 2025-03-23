@@ -90,7 +90,7 @@ const userOrders= async(req,res)=>{
         })
     }catch(error){
         res.json({
-            success:true,
+            success:false,
             message: {error}
         })
     }
@@ -106,7 +106,7 @@ const listOrders = async(req,res)=>{
         })
     }catch(error){
         res.json({
-            success: true,
+            success: false,
             message: {error}
         })
     }
