@@ -16,7 +16,7 @@ const port = process.env.PORT || 4000;
 app.use(express.json());     //this is 
 
 // Allow only frontend on render
-const allowedOrigins = ['https://food-delivery-app-frontend-vjx5.onrender.com'];
+const allowedOrigins = ['https://food-delivery-app-frontend-vjx5.onrender.com','https://food-delivery-app-admin-94f5.onrender.com'];
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
